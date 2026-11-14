@@ -19,7 +19,7 @@
 *{box-sizing:border-box}body{margin:0;background:#071116;color:#f5f7f7;font:16px system-ui,sans-serif}header,main{max-width:1240px;margin:auto;padding:24px}header a{color:#b4dbd2}h1{font-size:clamp(28px,5vw,48px);font-weight:500;margin:.45em 0}h2{font-size:1.14rem;margin:.6em 0}p{line-height:1.55}button,input,select{font:inherit}button,input,select,.link{padding:10px 13px;border:1px solid #49605f;border-radius:9px;color:inherit;background:#142427}button,.link{cursor:pointer}button:hover,.link:hover{background:#263e3e}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b4dbd2;outline-offset:2px}.filters,.actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.filters input{flex:1;min-width:220px}#grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,285px),1fr));gap:18px}.card{border:1px solid #294145;border-radius:16px;overflow:hidden;background:#102024}.cover,.photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#1a3034}.empty{display:grid;place-items:center;color:#b9cacc;text-align:center;padding:12px}.content{padding:16px}.price{color:#b4dbd2;font-size:1.25rem;font-weight:700}.muted{color:#b9cacc}.notice{color:#ffdb9c}#more{display:block;margin:24px auto}#more[hidden]{display:none}dialog{background:#102024;color:inherit;border:1px solid #49605f;border-radius:16px;width:min(760px,calc(100% - 24px));max-height:90dvh;padding:20px}dialog::backdrop{background:#000b}dialog form{display:flex;justify-content:flex-end}.photo{max-height:54dvh;object-fit:contain}.controls{display:flex;justify-content:space-between;align-items:center;margin:10px 0}.link{display:inline-block;text-decoration:none}.description{white-space:pre-line}
 </style>
 <style>
-.investment-header { position: relative; isolation: isolate; overflow: hidden; box-sizing: border-box; width: 100%; min-height: clamp(380px, 47vw, 720px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 15vw, 240px); align-items: center; padding: clamp(24px, 5vw, 72px); background: #071116; color: #fff; }
+.investment-header { position: relative; isolation: isolate; overflow: hidden; box-sizing: border-box; width: 100%; min-height: clamp(610px, 51.25vw, 850px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 26%; align-items: center; padding: clamp(28px, 4.7vw, 76px) 5vw; background: #071116; color: #fff; }
 .investment-header h1, .investment-header h2 { margin: 0; line-height: 1.08; text-wrap: balance; }
 .investment-header h1 { font-size: clamp(32px, 4vw, 60px); }
 .investment-header h2 { font-size: clamp(24px, 2.8vw, 42px); }
@@ -33,12 +33,31 @@
 .type-heading { position: relative; }
 .type-heading.is-typing > [data-original] { opacity: 0; }
 .type-heading [data-typed] { position: absolute; inset: 0; }
-@media (max-width: 760px) { .investment-header { grid-template-columns: minmax(0, 1fr); align-content: space-between; min-height: 700px; gap: 100px; } .investment-header::before { background: linear-gradient(180deg, rgb(0 0 0 / 80%), rgb(0 0 0 / 15%) 48%, rgb(0 0 0 / 80%)); } }
+@media (max-width: 760px) {
+  .investment-header {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    gap: 24px;
+  }
+  .investment-header::before { display: none; }
+  .investment-header > .investment-lead { grid-row: 1; }
+  .investment-header > .investment-video {
+    grid-row: 2;
+    position: static;
+    z-index: auto;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+  .investment-header > .investment-overlay { grid-row: 3; }
+}
 .investment-header > div { width: 100%; max-width: 31rem; }
-.investment-lead { align-self: start; padding-top: clamp(12px, 3vw, 46px); }
-.investment-overlay { align-self: end; justify-self: end; max-width: 25rem !important; padding-bottom: clamp(8px, 2vw, 28px); }
-.investment-header h1 { font-size: clamp(32px, 3.35vw, 56px); }
-.investment-header h2 { font-size: clamp(24px, 2.5vw, 39px); }
+.investment-lead { align-self: start; padding-top: 0; }
+.investment-lead > p { max-inline-size: 34ch; overflow-wrap: break-word; }
+.investment-header > .investment-overlay { align-self: end; justify-self: end; max-width: 23rem; padding-bottom: 0; }
+@media (min-width: 1100px) { .investment-header { padding-inline-end: 4vw; } .investment-header > .investment-overlay { max-width: 21rem; } }
+.investment-header h1 { font-size: clamp(32px, 3vw, 48px); }
+.investment-header h2 { font-size: clamp(24px, 2.25vw, 36px); }
 .investment-header .type-heading { text-wrap: normal; }
 @media (max-width: 760px) {
   .investment-lead, .investment-overlay { padding-block: 0; }
