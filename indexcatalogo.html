@@ -42341,7 +42341,7 @@ function update(){
     if(b.precio==null) return -1;
     return sort==='asc'?a.precio-b.precio:b.precio-a.precio;
   });
-  byId('count').textContent=filtered.length?filtered.length+' de '+properties.length+' propiedades':'No se encontraron propiedades.';
+  byId('count').textContent='Propiedades disponibles: '+properties.length.toLocaleString('es-MX');
   grid.replaceChildren();
   shown=0;
   appendPage();
