@@ -47,9 +47,14 @@
     grid-row: 2;
     position: static;
     z-index: auto;
+    width: calc(100% + 10vw);
+    max-width: none;
+    margin-inline: -5vw;
+    display: block;
     height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    object-position: center bottom;
   }
   .investment-header > .investment-overlay { grid-row: 3; }
 }
