@@ -99,6 +99,38 @@ main .card, .catalog-info section { background: rgb(12 12 12 / 38%); text-shadow
 .gnp-photo { position: relative; }
 .gnp-card { position: absolute; top: 8px; right: 8px; border-radius: 50%; }
 </style>
+<style>
+.buen-fin-marquesina {
+  position: relative; isolation: isolate; overflow: hidden;
+  margin-block-start: clamp(14px, 2vw, 28px);
+  padding-block: 16px;
+  border: 1px solid #a3abb2;
+  background: linear-gradient(110deg, #050505, #141414 52%, #050505);
+  color: #aeb3b8; text-align: center;
+  font: 800 clamp(0.92rem, 2.5vw, 1.16rem)/1.4 system-ui, sans-serif;
+  letter-spacing: 0.045em; text-transform: uppercase;
+}
+.buen-fin-marquesina::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: -1;
+  background: linear-gradient(112deg, transparent 38%, #dce8f022 46%, #f5fcff68 50%, #dce8f022 54%, transparent 62%);
+  animation: buen-fin-reflejo 5.5s ease-in-out infinite;
+}
+.buen-fin-cinta { display: flex; width: max-content; animation: buen-fin-desplazar 40s linear infinite; }
+.buen-fin-grupo { display: flex; flex: none; min-width: 100vw; justify-content: space-around; }
+.buen-fin-frase { flex: none; white-space: nowrap; padding-inline: clamp(24px, 4vw, 64px); }
+.buen-fin-restricciones { display: block; margin: 5px 16px 0; color: #aeb3b8; font-size: 0.75rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
+@keyframes buen-fin-desplazar { to { transform: translateX(-50%); } }
+@keyframes buen-fin-reflejo {
+  0%, 18% { transform: translateX(-100%); }
+  60%, 100% { transform: translateX(100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .buen-fin-marquesina::before, .buen-fin-cinta { animation: none; }
+  .buen-fin-cinta, .buen-fin-grupo { width: 100%; min-width: 0; }
+  .buen-fin-frase { flex: 1; white-space: normal; }
+  .buen-fin-grupo[aria-hidden], .buen-fin-frase[aria-hidden] { display: none; }
+}
+</style>
 </head>
 <body>
 <div class="catalog-backdrop" aria-hidden="true">
@@ -118,6 +150,25 @@ main .card, .catalog-info section { background: rgb(12 12 12 / 38%); text-shadow
       <p class="type-heading"><span data-original>Dale a cada inversión un rumbo claro. Conoce las oportunidades, evalúa tus opciones y convierte tus planes en una inversión inmobiliaria.</span><span data-typed aria-hidden="true"></span></p>
   </div>
 </header>
+<div class="buen-fin-marquesina">
+  <div class="buen-fin-cinta">
+    <div class="buen-fin-grupo">
+      <span class="buen-fin-frase">Descuentos de Buen Fin en todas nuestras propiedades</span>
+      <span class="buen-fin-frase" aria-hidden="true">Descuentos de Buen Fin en todas nuestras propiedades</span>
+      <span class="buen-fin-frase" aria-hidden="true">Descuentos de Buen Fin en todas nuestras propiedades</span>
+      <span class="buen-fin-frase" aria-hidden="true">Descuentos de Buen Fin en todas nuestras propiedades</span>
+      <span class="buen-fin-frase" aria-hidden="true">Descuentos de Buen Fin en todas nuestras propiedades</span>
+    </div>
+    <div class="buen-fin-grupo" aria-hidden="true">
+      <span class="buen-fin-frase">Descuentos de Buen Fin en todas nuestras propiedades</span>
+      <span class="buen-fin-frase">Descuentos de Buen Fin en todas nuestras propiedades</span>
+      <span class="buen-fin-frase">Descuentos de Buen Fin en todas nuestras propiedades</span>
+      <span class="buen-fin-frase">Descuentos de Buen Fin en todas nuestras propiedades</span>
+      <span class="buen-fin-frase">Descuentos de Buen Fin en todas nuestras propiedades</span>
+    </div>
+  </div>
+  <small class="buen-fin-restricciones">Aplican restricciones.</small>
+</div>
 <main>
 <div class="filters">
 <input id="search" type="search" placeholder="Buscar por ubicación, propiedad o folio" aria-label="Buscar por ubicación, propiedad o folio">
